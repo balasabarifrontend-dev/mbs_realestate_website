@@ -10,6 +10,7 @@ import {
   CheckBadgeIcon,
   ArrowRightIcon
 } from '@heroicons/react/24/outline';
+import AboutBannerImage from "../assets/AboutBannerImage.avif"
 
 export default function About() {
   const stats = [
@@ -63,7 +64,18 @@ export default function About() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+      <section className="min-h-screen relative overflow-hidden">
+        {/* Background Image with Gradient Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: `url(${AboutBannerImage})`
+          }}
+        >
+          {/* Enhanced Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-blue-900/60 to-purple-900/70"></div>
+        </div>
+        
         {/* Background Elements */}
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>

@@ -25,15 +25,15 @@ export function Navbar() {
 
   // Enhanced logic for determining navbar style
   const isTransparentNavbar = () => {
-    // For home page - transparent when not scrolled
+   
     if (location.pathname === "/") {
       return !isScrolled;
     }
-    // For about page - only transparent at the very top (hero section)
+    
     if (location.pathname === "/about") {
       return !isScrolled;
     }
-    // For other pages - never transparent
+    
     return false;
   };
 
@@ -214,5 +214,4 @@ export function Navbar() {
   );
 }
 
-// Export as default as well for compatibility
 export default Navbar;

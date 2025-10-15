@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { StarIcon, ChevronRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import BannerImage from "../assets/BannerImage.avif";
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +21,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/hero-bg.jpg')"
+            backgroundImage: `url(${BannerImage})`
           }}
         >
           {/* Enhanced Gradient Overlay */}
