@@ -83,7 +83,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    LuxeEstates
+                    MBS Reality
                   </span>
                   <p className="text-blue-200 text-sm">Premium Real Estate</p>
                 </div>
@@ -157,11 +157,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <PhoneIcon className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <p className="text-gray-300">+1 (555) 123-REAL</p>
+                  <p className="text-gray-300">+91 9876543210</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <EnvelopeIcon className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <p className="text-gray-300">info@luxeestates.com</p>
+                  <p className="text-gray-300">info@mbsreality.com</p>
                 </div>
               </div>
 
@@ -197,7 +197,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              &copy; {currentYear} LuxeEstates. All rights reserved. | Premium Real Estate Services
+              &copy; {currentYear} MBS Reality. All rights reserved. | Premium Real Estate Services
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>

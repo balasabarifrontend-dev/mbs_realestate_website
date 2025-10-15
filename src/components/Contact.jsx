@@ -49,13 +49,13 @@ const Contact = () => {
     {
       icon: <PhoneIcon className="w-6 h-6" />,
       title: 'Call Us',
-      details: '+1 (555) 123-REAL',
+      details: '+91 9876543210',
       subtitle: 'Mon-Fri from 8am to 6pm'
     },
     {
       icon: <EnvelopeIcon className="w-6 h-6" />,
       title: 'Email Us',
-      details: 'info@luxeestates.com',
+      details: 'info@mbsreality.com',
       subtitle: 'We reply within 24 hours'
     },
     {
@@ -218,7 +218,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+91 9876543210"
                     />
                   </div>
 
