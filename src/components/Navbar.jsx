@@ -61,10 +61,10 @@ export function Navbar() {
             >
               <Link to="/" className="text-3xl font-bold">
                 {shouldUseLightText ? (
-                  <span className="text-white">LuxeEstates</span>
+                  <span className="text-white">MBS Reality</span>
                 ) : (
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    LuxeEstates
+                    MBS Reality
                   </span>
                 )}
               </Link>
