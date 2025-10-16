@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { StarIcon, ChevronRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import BannerImage from "../assets/BannerImage.avif";
+import AboutUs from "./AboutUs";
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,6 +14,14 @@ export default function Hero() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -93,19 +102,20 @@ export default function Hero() {
 
             {/* Enhanced Main Heading */}
             <motion.h1
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-8 leading-none"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-none"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             >
-              Find Your
+              MBS Reality
               <motion.span 
                 className="block bg-gradient-to-r from-blue-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent mt-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 1 }}
               >
-                Dream Home
+                Your Best Choice For <br />
+                Real Estate Solution
               </motion.span>
             </motion.h1>
 
@@ -126,24 +136,24 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
             >
-              <motion.a
-                href="#properties"
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:from-blue-700 hover:to-purple-700 flex items-center gap-3"
+              <motion.button
+                onClick={() => scrollToSection("properties")}
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:from-blue-700 hover:to-purple-700 flex items-center gap-3 cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Explore Listings
                 <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
-              <motion.a
-                href="#contact"
-                className="group border-2 border-white/40 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 hover:shadow-2xl flex items-center gap-3"
+              </motion.button>
+              <motion.button
+                onClick={() => scrollToSection("contact")}
+                className="group border-2 border-white/40 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 hover:shadow-2xl flex items-center gap-3 cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Contact Agent
                 <PhoneIcon className="w-5 h-5" />
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             {/* Enhanced Stats */}
@@ -172,6 +182,8 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </section>
+
+        <AboutUs />
 
         {/* Enhanced Scroll Indicator */}
         <motion.div

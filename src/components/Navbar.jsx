@@ -25,19 +25,31 @@ export function Navbar() {
 
   // Enhanced logic for determining navbar style
   const isTransparentNavbar = () => {
-   
     if (location.pathname === "/") {
       return !isScrolled;
     }
-    
     if (location.pathname === "/about") {
       return !isScrolled;
     }
-    
     return false;
   };
 
   const shouldUseLightText = isTransparentNavbar();
+
+  // Smooth scroll function for home page sections
+  const handleHomeNavigation = (sectionId) => {
+    if (location.pathname !== "/") {
+      // If not on home page, navigate to home first
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // If already on home page, smooth scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -110,8 +122,8 @@ export function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  to="/schedule-tour"
+                <button
+                  onClick={() => handleHomeNavigation("contact")}
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg ${
                     shouldUseLightText
                       ? "bg-white text-gray-900 hover:bg-gray-100"
@@ -119,7 +131,7 @@ export function Navbar() {
                   }`}
                 >
                   Schedule Tour
-                </Link>
+                </button>
               </motion.div>
             </div>
 
@@ -194,13 +206,12 @@ export function Navbar() {
                   transition={{ delay: navItems.length * 0.1 }}
                   className="pt-4"
                 >
-                  <Link
-                    to="/schedule-tour"
+                  <button
+                    onClick={() => handleHomeNavigation("contact")}
                     className="block w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Schedule Tour
-                  </Link>
+                  </button>
                 </motion.div>
               </div>
             </motion.div>

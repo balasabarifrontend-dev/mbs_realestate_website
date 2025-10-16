@@ -89,7 +89,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-gray-300 mb-6 max-w-md text-lg leading-relaxed">
-                Your trusted partner in luxury real estate. We specialize in helping clients find their dream properties with exceptional service, expertise, and personalized attention to detail.
+                Your trusted partner in real estate. We specialize in helping clients find their dream properties with exceptional service, expertise, and personalized attention to detail.
               </p>
               
               {/* Social Links */}
@@ -200,6 +200,10 @@ const Footer = () => {
               &copy; {currentYear} MBS Reality. All rights reserved. | Premium Real Estate Services
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
+              <p>
+                Digital Partnered By :
+                <a href="https://balasabarisoftwaredeveloper.org" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300"> BalaSabari Software Developer</a>
+              </p>
               <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
               <a href="#" className="hover:text-white transition-colors duration-300">Cookie Policy</a>
