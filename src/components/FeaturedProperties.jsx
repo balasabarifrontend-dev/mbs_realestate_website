@@ -76,7 +76,7 @@ export function FeaturedProperties() {
   };
 
   return (
-    <section id="properties" className="py-24 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full -translate-x-36 -translate-y-36 opacity-50"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full translate-x-48 translate-y-48 opacity-30"></div>
@@ -301,5 +301,4 @@ export function FeaturedProperties() {
   );
 }
 
-// Add default export for compatibility
 export default FeaturedProperties;

@@ -5,6 +5,7 @@ import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import FeaturedProperties from "../components/FeaturedProperties";
+import PropertyServices from "../components/PropertyServices";
 
 export default function Home() {
   return (
@@ -12,10 +13,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <section id="properties">
         <FeaturedProperties />
+      <section id="property-services">
+        <PropertyServices />
       </section>
-      
       <Testimonials />
       <section id="contact">
         <Contact />

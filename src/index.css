@@ -1,1 +1,186 @@
 @import "tailwindcss";
+
+/* Enhanced Slider Styles */
+.slider {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  height: 8px;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.slider:hover {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 
+    0 4px 12px rgba(139, 92, 246, 0.4),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 6px 20px rgba(139, 92, 246, 0.6),
+    0 0 0 1px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 
+    0 4px 15px rgba(139, 92, 246, 0.8),
+    0 0 0 2px rgba(139, 92, 246, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 
+    0 4px 12px rgba(139, 92, 246, 0.4),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 6px 20px rgba(139, 92, 246, 0.6),
+    0 0 0 1px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+
+.slider::-moz-range-track {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  height: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.slider::-moz-range-progress {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  height: 8px;
+  border-radius: 8px;
+}
+
+/* For the enhanced slider in the FilterPage */
+.slider-thumb {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  height: 8px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 
+    0 4px 15px rgba(139, 92, 246, 0.5),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-thumb::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 
+    0 6px 25px rgba(139, 92, 246, 0.7),
+    0 0 0 2px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+
+.slider-thumb::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+  box-shadow: 
+    0 8px 30px rgba(139, 92, 246, 0.9),
+    0 0 0 3px rgba(139, 92, 246, 0.4);
+}
+
+.slider-thumb::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 
+    0 4px 15px rgba(139, 92, 246, 0.5),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider-thumb::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 
+    0 6px 25px rgba(139, 92, 246, 0.7),
+    0 0 0 2px rgba(139, 92, 246, 0.3);
+}
+
+/* Pulse animation for active filters */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.filter-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced focus states */
+.slider:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.slider:focus::-webkit-slider-thumb {
+  box-shadow: 
+    0 4px 15px rgba(139, 92, 246, 0.6),
+    0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+/* Loading animation for property cards */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 800px 104px;
+}
