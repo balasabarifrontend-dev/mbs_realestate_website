@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, Suspense, lazy } from "react";
-import { StarIcon, ChevronRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import {
+  StarIcon,
+  ChevronRightIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 import BannerImage from "../assets/BannerImage.avif";
 
 // Lazy load AboutUs
@@ -20,14 +24,14 @@ export default function Hero() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      // Get the navbar height to offset the scroll position
-      const navbarHeight = 80; // Adjust this value based on your navbar height
+      const navbarHeight = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - navbarHeight;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -39,16 +43,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{ backgroundImage: `url(${BannerImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-gray-900/60"></div>
-          {/* Delay decorative animations so main hero paints first */}
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", delay: 1.2 }}
-          />
-        </div>
+        />
 
         {/* Floating decor – start after hero text */}
         <motion.div
@@ -80,16 +75,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-none"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-blue-800 mb-4 leading-none"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             >
               MBS Reality
-              <motion.span 
-                className="block bg-gradient-to-r from-blue-700 via-purple-700 to-cyan-700 bg-clip-text text-transparent mt-4"
+              <motion.span
+                className="block text-white bg-clip-text mt-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 1 }}
@@ -100,12 +94,13 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-2xl sm:text-3xl text-white/100 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-2xl sm:text-3xl text-white mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              Discover extraordinary luxury properties in the world's most exclusive and desirable locations
+              Discover extraordinary luxury properties in the world's most
+              exclusive and desirable locations
             </motion.p>
 
             <motion.div
@@ -143,17 +138,19 @@ export default function Hero() {
               {[
                 { number: "750+", label: "Premium Properties" },
                 { number: "60+", label: "Global Locations" },
-                { number: "99%", label: "Client Satisfaction" }
+                { number: "99%", label: "Client Satisfaction" },
               ].map((stat, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="text-center group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="text-3xl sm:text-4xl font-black text-white mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                     {stat.number}
                   </div>
-                  <div className="text-white/60 text-sm font-semibold uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-white/60 text-sm font-semibold uppercase tracking-wider">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -175,7 +172,9 @@ export default function Hero() {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <span className="text-white/70 text-sm font-medium tracking-wider">SCROLL TO EXPLORE</span>
+            <span className="text-white/70 text-sm font-medium tracking-wider">
+              SCROLL TO EXPLORE
+            </span>
             <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
               <motion.div
                 className="w-1 h-3 bg-white/70 rounded-full"

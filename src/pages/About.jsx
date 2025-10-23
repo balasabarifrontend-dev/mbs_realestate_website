@@ -44,25 +44,29 @@ export default function About() {
     {
       icon: <ShieldCheckIcon className="w-8 h-8" />,
       title: "Integrity First",
-      description: "We believe in complete transparency and honesty in all our dealings. Your trust is our most valuable asset.",
+      description:
+        "We believe in complete transparency and honesty in all our dealings. Your trust is our most valuable asset.",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <HeartIcon className="w-8 h-8" />,
       title: "Client Focused",
-      description: "Your goals and dreams are at the center of everything we do. We listen, understand, and deliver beyond expectations.",
+      description:
+        "Your goals and dreams are at the center of everything we do. We listen, understand, and deliver beyond expectations.",
       color: "from-pink-500 to-rose-500",
     },
     {
       icon: <TrophyIcon className="w-8 h-8" />,
       title: "Excellence",
-      description: "We strive for perfection in every transaction and interaction. Good enough is never enough for our clients.",
+      description:
+        "We strive for perfection in every transaction and interaction. Good enough is never enough for our clients.",
       color: "from-amber-500 to-orange-500",
     },
     {
       icon: <LightBulbIcon className="w-8 h-8" />,
       title: "Innovation",
-      description: "We leverage cutting-edge technology and innovative strategies to give you a competitive edge in the market.",
+      description:
+        "We leverage cutting-edge technology and innovative strategies to give you a competitive edge in the market.",
       color: "from-purple-500 to-indigo-500",
     },
   ];
@@ -71,32 +75,58 @@ export default function About() {
     {
       name: "Mr R. MAHALINGAM",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      description: "Visionary leader with 15+ years in luxury real estate, transforming the industry with innovative approaches.",
+      image:
+        "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      description:
+        "Visionary leader with 15+ years in luxury real estate, transforming the industry with innovative approaches.",
       social: ["LinkedIn", "Twitter"],
     },
     {
       name: "Michael Chen",
       role: "Head of Sales",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      description: "Expert in property valuation and market analysis with a track record of record-breaking deals.",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      description:
+        "Expert in property valuation and market analysis with a track record of record-breaking deals.",
       social: ["LinkedIn", "Instagram"],
     },
     {
       name: "Emily Rodriguez",
       role: "Senior Agent",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      description: "Luxury homes specialist known for exceptional client service and attention to detail.",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      description:
+        "Luxury homes specialist known for exceptional client service and attention to detail.",
       social: ["LinkedIn", "Facebook"],
     },
   ];
 
   const achievements = [
-    { year: "2008", event: "Company Founded", description: "Started with a vision to transform real estate services" },
-    { year: "2012", event: "First  ₹1M in Sales", description: "Reached milestone of ₹1 million in property sales" },
-    { year: "2015", event: "50+ Team Members", description: "Expanded our expert team to serve more clients" },
-    { year: "2020", event: "Digital Transformation", description: "Implemented cutting-edge technology solutions" },
-    { year: "2023", event: "Market Leadership", description: "Became regional leader in luxury real estate" },
+    {
+      year: "2008",
+      event: "Company Founded",
+      description: "Started with a vision to transform real estate services",
+    },
+    {
+      year: "2012",
+      event: "First  ₹1M in Sales",
+      description: "Reached milestone of ₹1 million in property sales",
+    },
+    {
+      year: "2015",
+      event: "50+ Team Members",
+      description: "Expanded our expert team to serve more clients",
+    },
+    {
+      year: "2020",
+      event: "Digital Transformation",
+      description: "Implemented cutting-edge technology solutions",
+    },
+    {
+      year: "2023",
+      event: "Market Leadership",
+      description: "Became regional leader in luxury real estate",
+    },
   ];
 
   return (
@@ -111,9 +141,7 @@ export default function About() {
           style={{
             backgroundImage: `url(${AboutBannerImage})`,
           }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-blue-900/70 to-purple-900/80"></div>
-        </div>
+        />
 
         {/* Floating Elements */}
         <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -150,7 +178,6 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-6xl"
           >
-
             <motion.h1
               className="text-6xl sm:text-7xl md:text-8xl font-bold text-white mb-8 leading-tight"
               initial={{ opacity: 0, y: 30 }}
@@ -170,9 +197,10 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              For over 15 years, we've been the architects of dreams, transforming 
-              real estate visions into extraordinary realities. We don't just sell 
-              properties; we craft legacies and build relationships that transcend generations.
+              For over 15 years, we've been the architects of dreams,
+              transforming real estate visions into extraordinary realities. We
+              don't just sell properties; we craft legacies and build
+              relationships that transcend generations.
             </motion.p>
 
             <motion.div
@@ -192,7 +220,7 @@ export default function About() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </motion.button>
-              
+
               <motion.button
                 className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -222,7 +250,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-yellow-400 rounded-full blur-xl opacity-20"></div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-400 rounded-full blur-xl opacity-20"></div>
-                
+
                 <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-1 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition-all duration-700">
                   <div className="bg-white rounded-3xl p-12 backdrop-blur-sm">
                     <div className="flex items-center gap-4 mb-8">
@@ -233,29 +261,37 @@ export default function About() {
                         Our Legacy of Excellence
                       </h2>
                     </div>
-                    
+
                     <div className="space-y-6">
                       <p className="text-gray-700 text-lg leading-relaxed font-medium">
-                        <strong>MBS Realty</strong> stands as a premier full-service real estate 
-                        powerhouse, offering comprehensive solutions in Sales, Investment 
-                        Opportunities, Market Analysis, Corporate Services, and Property 
-                        Management across Tamil Nadu.
+                        <strong>MBS Realty</strong> stands as a premier
+                        full-service real estate powerhouse, offering
+                        comprehensive solutions in Sales, Investment
+                        Opportunities, Market Analysis, Corporate Services, and
+                        Property Management across Tamil Nadu.
                       </p>
-                      
+
                       <p className="text-gray-600 text-lg leading-relaxed">
-                        With <span className="text-blue-600 font-bold">15+ years of excellence</span>, 
-                        we've served diverse clients ranging from individual home seekers to 
-                        large corporate entities and industrial pioneers. Our success is 
-                        built on a foundation of trust, expertise, and unwavering commitment 
-                        to client satisfaction.
+                        With{" "}
+                        <span className="text-blue-600 font-bold">
+                          15+ years of excellence
+                        </span>
+                        , we've served diverse clients ranging from individual
+                        home seekers to large corporate entities and industrial
+                        pioneers. Our success is built on a foundation of trust,
+                        expertise, and unwavering commitment to client
+                        satisfaction.
                       </p>
-                      
+
                       <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-2xl border border-blue-100">
                         <p className="text-gray-700 font-semibold">
-                          "Our vision is to redefine real estate experiences through innovation, 
-                          integrity, and exceptional service that exceeds expectations."
+                          "Our vision is to redefine real estate experiences
+                          through innovation, integrity, and exceptional service
+                          that exceeds expectations."
                         </p>
-                        <p className="text-blue-600 font-bold mt-3">— Mr R. MAHALINGAM, Founder & CEO</p>
+                        <p className="text-blue-600 font-bold mt-3">
+                          — Mr R. MAHALINGAM, Founder & CEO
+                        </p>
                       </div>
                     </div>
 
@@ -322,11 +358,15 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-              Meet Our <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Dream Team</span>
+              Meet Our{" "}
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Dream Team
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Our success is powered by a team of passionate experts who bring decades of combined 
-              experience, innovative thinking, and unwavering dedication to every client relationship.
+              Our success is powered by a team of passionate experts who bring
+              decades of combined experience, innovative thinking, and
+              unwavering dedication to every client relationship.
             </p>
           </motion.div>
 
@@ -336,14 +376,18 @@ export default function About() {
                 key={index}
                 initial={{ opacity: 0, y: 80, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2, type: "spring" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.2,
+                  type: "spring",
+                }}
                 viewport={{ once: true }}
                 className="group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl transform group-hover:scale-105 transition-all duration-500 shadow-2xl"></div>
                 <div className="relative bg-white rounded-3xl p-8 shadow-xl transform group-hover:-translate-y-2 transition-all duration-500 overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                  
+
                   <div className="text-center">
                     <div className="w-32 h-32 mx-auto mb-6 relative">
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform group-hover:scale-110 transition-all duration-500"></div>
@@ -353,7 +397,7 @@ export default function About() {
                         className="w-30 h-30 rounded-full object-cover relative z-10 mx-auto border-4 border-white shadow-lg"
                       />
                     </div>
-                    
+
                     <h3 className="text-2xl font-black text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {member.name}
                     </h3>
@@ -363,7 +407,7 @@ export default function About() {
                     <p className="text-gray-600 leading-relaxed mb-6">
                       {member.description}
                     </p>
-                    
+
                     <div className="flex justify-center gap-4">
                       {member.social.map((platform, idx) => (
                         <motion.button
@@ -403,11 +447,14 @@ export default function About() {
               <span className="text-white font-semibold">Our Foundation</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Core Values That <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Drive Us</span>
+              Core Values That{" "}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Drive Us
+              </span>
             </h2>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
-              These fundamental principles guide every decision we make, every relationship we build, 
-              and every dream we help achieve.
+              These fundamental principles guide every decision we make, every
+              relationship we build, and every dream we help achieve.
             </p>
           </motion.div>
 
@@ -417,7 +464,11 @@ export default function About() {
                 key={index}
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  type: "spring",
+                }}
                 viewport={{ once: true }}
                 className="group relative"
               >
