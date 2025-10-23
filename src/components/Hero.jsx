@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { StarIcon, ChevronRightIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import BannerImage from "../assets/BannerImage.avif";
-import AboutUs from "./AboutUs";
+
+// Lazy load AboutUs
+const AboutUs = lazy(() => import("./AboutUs"));
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,66 +17,62 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Get the navbar height to offset the scroll position
+      const navbarHeight = 80; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
   return (
     <>
-      {/* Enhanced Fixed Background Section */}
+      {/* Pre-loaded background section */}
       <section className="fixed top-0 left-0 w-full h-screen -z-10">
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{
-            backgroundImage: `url(${BannerImage})`
-          }}
+          style={{ backgroundImage: `url(${BannerImage})` }}
         >
-          {/* Enhanced Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-gray-900/60"></div>
-          {/* Animated Gradient Overlay */}
+          {/* Delay decorative animations so main hero paints first */}
           <motion.div 
             className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"
-            animate={{
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", delay: 1.2 }}
           />
         </div>
-        
-        {/* Enhanced Floating Elements */}
+
+        {/* Floating decor – start after hero text */}
         <motion.div
           className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full mix-blend-soft-light opacity-30 blur-xl"
-          animate={{ 
-            y: [0, -40, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, -40, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, delay: 1.4 }}
         />
         <motion.div
           className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mix-blend-soft-light opacity-25 blur-xl"
-          animate={{ 
-            y: [0, 30, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 30, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 10, repeat: Infinity, delay: 1.6 }}
         />
         <motion.div
           className="absolute top-1/2 left-1/4 w-20 h-20 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full mix-blend-soft-light opacity-20 blur-xl"
-          animate={{ 
-            y: [0, -25, 0],
-            x: [0, 20, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity, delay: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, -25, 0], x: [0, 20, 0] }}
+          transition={{ duration: 7, repeat: Infinity, delay: 1.8 }}
         />
       </section>
 
-      {/* Enhanced Scrollable Content Sections */}
+      {/* Hero content section */}
       <div className="relative z-10">
-        {/* Enhanced Hero Content */}
         <section className="min-h-screen flex items-center justify-center px-6">
           <motion.div
             className="text-center max-w-6xl"
@@ -82,34 +80,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            {/* Enhanced Premium Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-3 rounded-2xl mb-12 shadow-2xl"
-            >
-              <div className="flex items-center gap-2">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full"
-                />
-                <span className="text-white/90 font-semibold text-sm">Premium Properties Available</span>
-              </div>
-              <StarIcon className="w-4 h-4 text-yellow-400" />
-            </motion.div>
 
-            {/* Enhanced Main Heading */}
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-none"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-none"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             >
               MBS Reality
               <motion.span 
-                className="block bg-gradient-to-r from-blue-300 via-purple-300 to-cyan-300 bg-clip-text text-transparent mt-4"
+                className="block bg-gradient-to-r from-blue-700 via-purple-700 to-cyan-700 bg-clip-text text-transparent mt-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 1 }}
@@ -119,9 +99,8 @@ export default function Hero() {
               </motion.span>
             </motion.h1>
 
-            {/* Enhanced Subtitle */}
             <motion.p
-              className="text-2xl sm:text-3xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-2xl sm:text-3xl text-white/100 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -129,7 +108,6 @@ export default function Hero() {
               Discover extraordinary luxury properties in the world's most exclusive and desirable locations
             </motion.p>
 
-            {/* Enhanced CTA Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
               initial={{ opacity: 0, y: 30 }}
@@ -137,7 +115,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 1.4 }}
             >
               <motion.button
-                onClick={() => scrollToSection("properties")}
+                onClick={() => scrollToSection("testimonials")}
                 className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:from-blue-700 hover:to-purple-700 flex items-center gap-3 cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -147,7 +125,7 @@ export default function Hero() {
               </motion.button>
               <motion.button
                 onClick={() => scrollToSection("contact")}
-                className="group border-2 border-white/40 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 hover:shadow-2xl flex items-center gap-3 cursor-pointer"
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/60 hover:shadow-2xl flex items-center gap-3 cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -156,7 +134,6 @@ export default function Hero() {
               </motion.button>
             </motion.div>
 
-            {/* Enhanced Stats */}
             <motion.div
               className="grid grid-cols-3 gap-12 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
@@ -183,9 +160,10 @@ export default function Hero() {
           </motion.div>
         </section>
 
-        <AboutUs />
+        <Suspense fallback={<div></div>}>
+          <AboutUs />
+        </Suspense>
 
-        {/* Enhanced Scroll Indicator */}
         <motion.div
           className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0 }}

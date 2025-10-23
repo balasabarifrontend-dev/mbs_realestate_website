@@ -7,7 +7,7 @@ import {
   StarIcon
 } from '@heroicons/react/24/outline'
 
-import AboutCardImage from "../assets/AboutCardImage.jpg"
+import AboutCardImage from "../assets/AboutCardImage.avif"
 
 const AboutUs = () => {
   const features = [
@@ -204,7 +204,7 @@ const AboutUs = () => {
                       <div className="text-center bg-white/80 backdrop-blur-sm py-4 px-6 rounded-2xl shadow-lg">
                         <BuildingOfficeIcon className="w-12 h-12 text-blue-600 mx-auto mb-2" />
                         <p className="text-gray-800 font-bold text-lg">MBS Realty</p>
-                        <p className="text-gray-600 text-sm">Premium Real Estate</p>
+                        <p className="text-gray-600 text-sm">Real Estate</p>
                       </div>
                     </motion.div>
                   </div>

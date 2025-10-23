@@ -29,7 +29,7 @@ export default function About() {
       icon: <UserGroupIcon className="w-6 h-6" />,
     },
     {
-      number: "$4.2B",
+      number: " ₹4.2M",
       label: "Property Sold",
       icon: <BuildingOfficeIcon className="w-6 h-6" />,
     },
@@ -93,7 +93,7 @@ export default function About() {
 
   const achievements = [
     { year: "2008", event: "Company Founded", description: "Started with a vision to transform real estate services" },
-    { year: "2012", event: "First $1B in Sales", description: "Reached milestone of $1 billion in property sales" },
+    { year: "2012", event: "First  ₹1M in Sales", description: "Reached milestone of ₹1 million in property sales" },
     { year: "2015", event: "50+ Team Members", description: "Expanded our expert team to serve more clients" },
     { year: "2020", event: "Digital Transformation", description: "Implemented cutting-edge technology solutions" },
     { year: "2023", event: "Market Leadership", description: "Became regional leader in luxury real estate" },
@@ -150,17 +150,6 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-6xl"
           >
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/30 px-8 py-4 rounded-2xl mb-12 shadow-2xl"
-            >
-              <SparklesIcon className="w-6 h-6 text-yellow-400" />
-              <span className="text-white text-lg font-semibold tracking-wide">
-                Premium Real Estate Excellence
-              </span>
-            </motion.div> */}
 
             <motion.h1
               className="text-6xl sm:text-7xl md:text-8xl font-bold text-white mb-8 leading-tight"
@@ -176,7 +165,7 @@ export default function About() {
             </motion.h1>
 
             <motion.p
-              className="text-2xl text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed font-light"
+              className="text-2xl text-white max-w-4xl mx-auto mb-12 leading-relaxed font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -205,7 +194,7 @@ export default function About() {
               </motion.button>
               
               <motion.button
-                className="group border-2 border-white/50 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
+                className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

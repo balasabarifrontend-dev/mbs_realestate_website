@@ -15,6 +15,11 @@ import {
 } from '@heroicons/react/24/outline'
 import FilterPage from './FilterPage'
 
+import BuyCardImage from "../assets/BuyCardImage.avif"
+import SellCardImage from "../assets/SellCardImage.avif"
+import RentCardImages from "../assets/RentCardImages.avif"
+import LandCardImage from "../assets/LandCardImage.avif"
+
 const PropertyServices = () => {
   const [activeTab, setActiveTab] = useState('buy')
   const [selectedPropertyType, setSelectedPropertyType] = useState('all')
@@ -30,6 +35,7 @@ const PropertyServices = () => {
       color: 'from-blue-600 to-purple-600',
       bgColor: 'from-blue-50 to-purple-50',
       borderColor: 'border-blue-200',
+      image: BuyCardImage, // Added image reference
       features: [
         'Premium Residential Properties',
         'Commercial Spaces',
@@ -54,6 +60,7 @@ const PropertyServices = () => {
       color: 'from-blue-600 to-purple-600',
       bgColor: 'from-blue-50 to-purple-50',
       borderColor: 'border-blue-200',
+      image: SellCardImage, // Added image reference
       features: [
         'Free Property Valuation',
         'Professional Photography',
@@ -79,6 +86,7 @@ const PropertyServices = () => {
       color: 'from-blue-600 to-purple-600',
       bgColor: 'from-blue-50 to-purple-50',
       borderColor: 'border-blue-200',
+      image: RentCardImages, // Added image reference
       features: [
         'Residential Apartments',
         'Commercial Offices',
@@ -104,6 +112,7 @@ const PropertyServices = () => {
       color: 'from-blue-600 to-purple-600',
       bgColor: 'from-blue-50 to-purple-50',
       borderColor: 'border-blue-200',
+      image: LandCardImage, // Added image reference
       features: [
         'Long-term Contracts',
         'Commercial Leasing',
@@ -298,11 +307,11 @@ const PropertyServices = () => {
               </motion.div>
 
               {/* CTA Button */}
-              {/* <motion.button
+              <motion.button
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                onClick={() => handleExploreClick(activeTab)}
+                // onClick={() => handleExploreClick(activeTab)}
                 className={`flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 group`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -310,10 +319,10 @@ const PropertyServices = () => {
                 <MagnifyingGlassIcon className="w-5 h-5" />
                 Explore {activeService.title}
                 <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button> */}
+              </motion.button>
             </div>
 
-            {/* Right Side - Visual Card */}
+            {/* Right Side - Visual Card with Image */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -322,13 +331,22 @@ const PropertyServices = () => {
             >
               <div className={`bg-gradient-to-r from-blue-600 to-purple-600 p-1 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition-all duration-700`}>
                 <div className="bg-white rounded-3xl p-8 backdrop-blur-sm">
-                  <div className="aspect-video rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                    {/* Placeholder for service-specific image */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center">
-                      <div className="text-center">
-                        {activeService.icon}
-                        <p className="text-gray-600 font-bold text-xl mt-4">{activeService.title}</p>
-                        <p className="text-gray-400 text-sm">Premium Property Solutions</p>
+                  {/* Image Container */}
+                  <div className="aspect-video rounded-2xl relative overflow-hidden shadow-lg">
+                    <img 
+                      src={activeService.image} 
+                      alt={activeService.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-2xl font-bold mb-2">{activeService.title}</h3>
+                        <p className="text-blue-200 text-sm">Premium Property Solutions</p>
                       </div>
                     </div>
                     

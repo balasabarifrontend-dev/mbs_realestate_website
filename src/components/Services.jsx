@@ -6,99 +6,144 @@ import {
   CheckBadgeIcon
 } from '@heroicons/react/24/outline'
 
+import IndustrialImage from "../assets/IndustrialImage.avif"
+import ComercialImage from "../assets/ComercialImage.avif"
+import ResidentialImage from "../assets/ResidentialImage.avif"
+
 const Services = () => {
   const services = [
     {
       name: "Industrial Properties",
       description: "Strategic industrial locations with excellent connectivity and infrastructure for manufacturing and warehousing.",
-      image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: IndustrialImage, 
       features: ["Warehouses", "Manufacturing Units", "Industrial Parks"],
       color: "from-blue-500 to-teal-500",
+      iconColor: "text-blue-500",
     },
     {
       name: "Commercial Spaces",
       description: "Premium commercial properties in prime business districts offering exceptional growth potential.",
-      image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: ComercialImage,
       features: ["Office Spaces", "Retail Outlets", "Business Centers"],
       color: "from-purple-500 to-pink-500",
+      iconColor: "text-purple-500",
     },
     {
       name: "Residential Projects",
       description: "Luxurious residential properties that combine elegant living with modern amenities and security.",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: ResidentialImage, 
       features: ["Apartments", "Villas", "Gated Communities"],
       color: "from-green-500 to-emerald-500",
+      iconColor: "text-green-500",
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
         >
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-            Our <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">Expert</span> Services
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our <span className="text-green-600">Expert</span> Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We specialize in comprehensive real estate solutions tailored to your unique needs, 
             leveraging deep market expertise and innovative strategies.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2, type: "spring" }}
-              viewport={{ once: true }}
-              className="group relative"
+              variants={cardVariants}
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl transform group-hover:scale-105 group-hover:shadow-2xl transition-all duration-500 border border-gray-100"></div>
-              <div className="relative p-8 h-full flex flex-col">
-                <div className="mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center text-white mb-4 transform group-hover:scale-110 transition-all duration-500`}>
-                    <BuildingOfficeIcon className="w-8 h-8" />
+              {/* Image Section */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+              </div>
+              
+              {/* Content Section */}
+              <div className="p-6">
+                {/* Icon and Title */}
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className={`p-3 rounded-xl bg-gradient-to-r ${service.color} shadow-md`}>
+                    <BuildingOfficeIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
                 </div>
-                
-                <div className="mt-auto">
-                  <div className="space-y-3 mb-8">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <CheckBadgeIcon className="w-5 h-5 text-green-500" />
-                        <span className="text-gray-700 font-medium">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <motion.button
-                    className="w-full bg-gradient-to-r from-gray-900 to-blue-900 text-white py-4 rounded-2xl font-bold hover:shadow-xl transition-all duration-300 group"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="flex items-center justify-center gap-3">
-                      Explore {service.name}
-                      <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </motion.button>
+
+                {/* Description */}
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features List */}
+                <div className="space-y-3 mb-6">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-3">
+                      <CheckBadgeIcon className={`w-5 h-5 ${service.iconColor}`} />
+                      <span className="text-gray-700 font-medium">{feature}</span>
+                    </div>
+                  ))}
                 </div>
+
+                {/* Button */}
+                <motion.button
+                  className="w-full bg-gray-900 text-white py-3 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center space-x-2 group/btn"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>Explore More</span>
+                  <ArrowRightIcon className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </motion.button>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

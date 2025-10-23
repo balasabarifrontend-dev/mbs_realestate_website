@@ -346,7 +346,7 @@ export function Navbar() {
                       : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
                   }`}
                 >
-                  Schedule Tour
+                  Schedule Appointment
                 </button>
               </motion.div>
             </div>
@@ -478,7 +478,7 @@ export function Navbar() {
                     onClick={handleScheduleTour}
                     className="block w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg focus:outline-none"
                   >
-                    Schedule Tour
+                    Schedule Appointment
                   </button>
                 </motion.div>
               </div>
@@ -488,7 +488,7 @@ export function Navbar() {
       </motion.nav>
 
       {/* Spacer for fixed navbar - ONLY for home page */}
-      {location.pathname === "/" && <div className="h-20 md:h-24"></div>}
+      {location.pathname === "/" && <div className="h-6 md:h-12"></div>}
     </>
   );
 }
