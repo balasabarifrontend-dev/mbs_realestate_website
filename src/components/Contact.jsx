@@ -5,7 +5,8 @@ import {
   PhoneIcon, 
   EnvelopeIcon,
   ClockIcon,
-  PaperAirplaneIcon
+  PaperAirplaneIcon,
+  MapIcon
 } from '@heroicons/react/24/outline'
 
 const Contact = () => {
@@ -102,15 +103,16 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
+        {/* Top Section - Contact Info and Form Side by Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+          {/* Left Column - Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 h-full">
               <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
               
               <div className="space-y-6">
@@ -158,14 +160,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right Column - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 h-full">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
                 <p className="text-gray-600">We'll get back to you within 24 hours</p>
@@ -284,6 +286,85 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Bottom Section - Full Width Map */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            {/* Map Header */}
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-white/20 rounded-xl">
+                  <MapIcon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-2xl mb-2">Find Our Office</h3>
+                  <p className="text-blue-100 text-lg">123 Luxury Lane, Beverly Hills, CA 90210</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Map Container */}
+            <div className="h-96 bg-gray-200 relative">
+              {/* Google Maps Embed */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.953366754852!2d-118.3998379243321!3d34.06246207316616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc04d74f4d67%3A0x7db3f2b6a1f7b9e0!2sBeverly%20Hills%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="MBS Reality Office Location"
+                className="absolute inset-0"
+              ></iframe>
+              
+              {/* Map Overlay Info */}
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg max-w-xs">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  <p className="font-semibold text-gray-900 text-lg">MBS Reality</p>
+                </div>
+                <p className="text-sm text-gray-600 mb-1">123 Luxury Lane</p>
+                <p className="text-sm text-gray-600 mb-3">Beverly Hills, CA 90210</p>
+                <div className="flex items-center gap-2">
+                  <ClockIcon className="w-4 h-4 text-gray-500" />
+                  <span className="text-sm text-gray-500">Open 9AM - 6PM</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Map Actions */}
+            <div className="p-6 bg-gray-50 border-t border-gray-200">
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-3"
+                  onClick={() => window.open('https://maps.google.com/?q=123+Luxury+Lane,+Beverly+Hills,+CA+90210', '_blank')}
+                >
+                  <MapPinIcon className="w-5 h-5" />
+                  Get Directions
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center gap-3"
+                  onClick={() => window.open('tel:+919876543210')}
+                >
+                  <PhoneIcon className="w-5 h-5" />
+                  Call Now
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   )
